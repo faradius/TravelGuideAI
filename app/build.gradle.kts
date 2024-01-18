@@ -72,6 +72,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
+    //Material Icons
+    implementation ("androidx.compose.material:material-icons-extended:1.5.4")
+    implementation ("androidx.compose.material:material:1.5.4")
+
     //Hilt
     val hiltVersion = "2.47"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
