@@ -36,7 +36,7 @@ class HomeViewModel @Inject constructor(
     fun search(){
         viewModelScope.launch {
             repository.getTravelGuide(state.searchText).onSuccess {
-                Log.d("TAG", it)
+                state = state.copy(chatReplay = it)
             }.onFailure {
                 println("Hubo un error")
             }
@@ -82,6 +82,12 @@ class HomeViewModel @Inject constructor(
         state = state.copy(
             showDialog = false,
             filterSettings = state.filterSettingsBackup
+        )
+    }
+
+    fun onBackPress(){
+        state = state.copy(
+            chatReplay = null
         )
     }
 }

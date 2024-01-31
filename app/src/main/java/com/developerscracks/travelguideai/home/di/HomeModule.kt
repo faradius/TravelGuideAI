@@ -26,9 +26,9 @@ object HomeModule {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor())
             .addInterceptor(ApiKeyInterceptor())
-            .readTimeout(30, TimeUnit.SECONDS) // Timeout de lectura
-            .writeTimeout(30, TimeUnit.SECONDS) // Timeout de escritura
-            .callTimeout(30, TimeUnit.SECONDS) // Establece un timeout de 30 segundos
+            .connectTimeout(20, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS) // Timeout de lectura
+            .writeTimeout(20, TimeUnit.SECONDS) // Timeout de escritura
             .build()
 
         return Retrofit.Builder()
