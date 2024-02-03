@@ -4,6 +4,8 @@ import com.developerscracks.travelguideai.home.data.remote.ChatgptApi
 import com.developerscracks.travelguideai.home.data.remote.dto.ChatRequestDTO
 import com.developerscracks.travelguideai.home.data.remote.dto.MessageX
 import com.developerscracks.travelguideai.home.domain.HomeRepository
+import com.developerscracks.travelguideai.home.domain.model.Place
+import com.developerscracks.travelguideai.home.domain.model.Region
 
 class HomeRepositoryImpl(
     private val api: ChatgptApi
@@ -27,5 +29,18 @@ class HomeRepositoryImpl(
         } catch (e: Exception) {
             Result.failure(e)
         }
+    }
+
+    override suspend fun getPopularPlaces(): Result<List<Place>> {
+        return Result.success(
+            listOf(
+                Place("USA", "New York", Region.AMERICA),
+                Place("Argentina", "Salta", Region.AMERICA),
+                Place("España", "Barcelona", Region.EUROPA),
+                Place("Australia", "Sydney", Region.OCEANIA),
+                Place("Japon", "Tokio", Region.ASIA),
+                Place("Italia", "Roma", Region.EUROPA)
+            )
+        )
     }
 }

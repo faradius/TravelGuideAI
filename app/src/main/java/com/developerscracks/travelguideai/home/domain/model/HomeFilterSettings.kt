@@ -1,4 +1,4 @@
-package com.developerscracks.travelguideai.home.presentation
+package com.developerscracks.travelguideai.home.domain.model
 
 data class HomeFilterSettings(
     val people: Int = 1,
