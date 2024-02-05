@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.developerscracks.travelguideai.ui.theme.BackgroundGray
+import com.developerscracks.travelguideai.ui.theme.DarkGreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,7 +34,7 @@ fun HomeSearchBar(
         placeholder = {
             Text(text = placeholder)
         },
-        modifier = modifier.background(color = Color.LightGray, shape =  RoundedCornerShape(86.dp)),
+        modifier = modifier.background(color = BackgroundGray, shape =  RoundedCornerShape(86.dp)),
         singleLine = true,
         trailingIcon = {
             HomeSearchButton(
@@ -44,6 +46,7 @@ fun HomeSearchBar(
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color.Transparent,
             unfocusedBorderColor = Color.Transparent,
+            cursorColor = DarkGreen
         )
     )
 }
