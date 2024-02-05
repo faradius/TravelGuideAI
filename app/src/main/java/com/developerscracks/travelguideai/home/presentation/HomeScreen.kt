@@ -22,6 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.developerscracks.travelguideai.home.presentation.components.HomeFilterButton
 import com.developerscracks.travelguideai.home.presentation.components.HomeFilterDialog
+import com.developerscracks.travelguideai.home.presentation.components.HomePopularPlaceItem
 import com.developerscracks.travelguideai.home.presentation.components.HomePoularFilter
 import com.developerscracks.travelguideai.home.presentation.components.HomeSearchBar
 
@@ -113,30 +114,13 @@ fun HomeScreen(
                         horizontalArrangement = Arrangement.spacedBy(24.dp), // Espacio entre elementos
                         contentPadding = PaddingValues(horizontal = 16.dp) // Inicia con un padding y despues se reduce
                     ) {
-                        items(state.popularPlaces) {
-                            Box(
-                                modifier = Modifier
-                                    .size(180.dp, 280.dp)
-                                    .clip(RoundedCornerShape(20.dp))
-                                    .clickable {
-                                        viewModel.onSearchTextChange("${it.country}, ${it.city}")
-                                    }
-                            ) {
-                                AsyncImage(
-                                    model = it.image,
-                                    contentDescription = "${it.country} ${it.city}",
-                                    contentScale = ContentScale.Crop
-                                )
-                                Text(
-                                    text = "${it.country}, ${it.city}",
-                                    color = Color.White,
-                                    fontSize = 13.sp,
-                                    fontWeight = FontWeight.Black,
-                                    modifier = Modifier
-                                        .align(Alignment.BottomStart)
-                                        .padding(12.dp)
-                                )
-                            }
+                        items(state.popularPlaces) {place ->
+                            HomePopularPlaceItem(
+                                place = place,
+                                onPlaceClick = {
+                                    viewModel.onSearchTextChange(it)
+                                }
+                            )
                         }
                     }
                 }

@@ -29,10 +29,7 @@ fun HomePoularFilter(
     ){
         Region.values().forEach{
             val textColor = if (it == selectedRegion) DarkGreen else Color.Gray
-            TextButton(onClick = { selectRegion(it) }, colors = ButtonDefaults.textButtonColors(
-                contentColor = DarkGreen
-
-            )) {
+            TextButton(onClick = { selectRegion(it) }) {
                 Text(text = it.name.lowercase().capitalize(Locale.current), color = textColor)
             }
         }

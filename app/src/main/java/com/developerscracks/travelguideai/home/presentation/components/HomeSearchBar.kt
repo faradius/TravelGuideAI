@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.developerscracks.travelguideai.ui.theme.BackgroundGray
 import com.developerscracks.travelguideai.ui.theme.DarkGreen
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeSearchBar(
